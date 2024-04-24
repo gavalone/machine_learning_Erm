@@ -20,7 +20,7 @@ message = b'Hello'
 
 client_socket.sendto(message,(host_ip,port))
 #--------onnx----
-path=os.path.join(os.path.abspath(os.curdir) , 'my_model.onnx')
+path=os.path.join(os.path.abspath(os.curdir) , 'my_model.onnx') # файл модели для обучения
 args_confidence = 0.2
 
 # initialize the list of class labels 
@@ -48,7 +48,7 @@ def video_stream():
 		# grab the frame dimensions and convert it to a blob
 		(h, w) = frame.shape[:2]
 		blob = cv2.dnn.blobFromImage(cv2.resize(frame, (32, 32)),scalefactor=1.0/32
-								, size=(32, 32), mean= (128,128,128), swapRB=True)
+								, size=(32, 32), mean= (128,128,128), swapRB=True) # переделывает картинку в формат блоб (битовая последоваельность)
 		cv2.imshow("Cropped image", cv2.resize(frame, (32, 32)))
 
 		# pass the blob through the network and obtain the detections and
